@@ -1,0 +1,18 @@
+<div class="container">
+  <%= simple_form_for(Restaurant.new) do |f|%>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+    <%= f.submit  %>
+  <% end %>
+</div>
+
+
+<div class="container">
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+</div>
